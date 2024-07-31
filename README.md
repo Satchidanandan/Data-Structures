@@ -1,3 +1,4 @@
+
 # DATA STRUCTURES
 
 My progress in learning DSA.
@@ -7,6 +8,7 @@ My progress in learning DSA.
 
 ## Topics
 - Arrays
-- Linked Lists
+- Sorting Algorithm
+- Linked List
 - Stacks
 
