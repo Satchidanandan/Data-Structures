@@ -59,8 +59,8 @@ return arr[top];
 int main() {
 Stack a(8);
 
-a.Push(Employee("hardik", 1, 100000));
-a.Push(Employee("gokul", 2, 100000));
+a.Push(Employee("sachin", 1, 100000));
+a.Push(Employee("amit", 2, 100000));
 a.Print();
 a.Pop();
 //cout<<"after pop:"<<endl;
