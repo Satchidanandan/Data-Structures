@@ -1,55 +1,54 @@
-//C++ Program that uses singly linked list to store employee details & display maximum salary employee.
+//C++ program to adding and deleting node in singly linked list
 #include <iostream>
 using namespace std;
-class Node {
+class Node
+{
 public:
-int id;
-string name;
-double salary;
+int data;
 Node* next;
 };
-void push(Node** head, int id, string name, double salary)
+void ins(Node** head, int newData)
 {
-Node* new_node = new Node();
-new_node->id = id;
-new_node->name = name;
-new_node->salary = salary;
-new_node->next = *head;
-*head=new_node;
+
+Node* newNode = new Node();
+newNode->data = newData;
+newNode->next = *head;
+*head = newNode;
 }
-Node* maxsalary(Node* head) {
-Node* maxNode = head;
-Node* current = head->next;
-while (current != NULL) {
-if (current->salary > maxNode->salary) {
-maxNode = current;}
-current = current->next;}
-return maxNode;
-}
-void print(Node* n)
+void del(Node** head)
 {
-while(n!=NULL)
-{cout << "EMP ID: " << n->id << ", Name: " << n->name << ", Salary: " << n->salary
-<< endl;;
-n=n->next;}
-cout<<"\n";
+if (*head == NULL) {
+cout << "List is empty" << std::endl;
+return;
+}
+Node* temp = *head;
+*head = (*head)->next;
+delete temp;
+}
+void printList(Node* head)
+{
+while (head != NULL)
+{cout << head->data << " ";
+head = head->next;}
+cout << endl;
 }
 int main()
 {
-Node* head=NULL;
-push(&head,4, "harry", 5000);
-push(&head,3, "ford", 6000);
-push(&head,2, "shane", 99000);
-
-push(&head,1, "rocky", 2000);
-cout << "Employee Details:" << endl;
-print(head);
-Node* x = maxsalary(head);
-if (x != NULL) {
-cout << "\nEmployee with the highest salary:\n";
-cout << "EMP ID: " << x->id << ", Name: " << x->name << ", Salary: " << x->salary
-<< endl;
-} else
-{cout << "\nNo employees found.\n";}
+Node *head=new Node();
+Node *second=new Node();
+Node *third=new Node();
+head->data=2;
+head->next=second;
+second->next=third;
+second->data=3;
+third->data=4;
+cout<<"before ins:";
+printList(head);
+ins(&head, 1);
+cout << "after ins: ";
+printList(head);
+cout<<"after deleting:";
+del(&head);
+printList(head);
 return 0;
 }
